@@ -1,5 +1,5 @@
 /**
- * This file has been moved to the "@nestjs/schematics" package to avoid pulling the entire "@schematics/angular" into Nest projects.
+ * This file has been moved to the "@gabrielmaialva33/schematics" package to avoid pulling the entire "@schematics/angular" into Nest projects.
  * REF https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/utility/json-file.ts
  * @license
  * Copyright Google Inc. All Rights Reserved.

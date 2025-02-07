@@ -25,7 +25,7 @@ describe('Configuration Factory', () => {
     ).not.toBeUndefined();
     expect(JSON.parse(tree.readContent('/nest-cli.json'))).toEqual({
       $schema: 'https://json.schemastore.org/nest-cli',
-      collection: '@nestjs/schematics',
+      collection: '@gabrielmaialva33/schematics',
       sourceRoot: 'src',
     });
   });
@@ -44,7 +44,7 @@ describe('Configuration Factory', () => {
     ).not.toBeUndefined();
     expect(JSON.parse(tree.readContent('/project/nest-cli.json'))).toEqual({
       $schema: 'https://json.schemastore.org/nest-cli',
-      collection: '@nestjs/schematics',
+      collection: '@gabrielmaialva33/schematics',
       sourceRoot: 'src',
     });
   });
@@ -65,7 +65,7 @@ describe('Configuration Factory', () => {
     expect(JSON.parse(tree.readContent('/project/nest-cli.json'))).toEqual({
       $schema: 'https://json.schemastore.org/nest-cli',
       language: 'js',
-      collection: '@nestjs/schematics',
+      collection: '@gabrielmaialva33/schematics',
       sourceRoot: 'src',
     });
   });

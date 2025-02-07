@@ -1,5 +1,5 @@
 /**
- * This file has been moved to the "@nestjs/schematics" to avoid pulling the entire "@schematics/angular" into Nest projects.
+ * This file has been moved to the "@gabrielmaialva33/schematics" to avoid pulling the entire "@schematics/angular" into Nest projects.
  * REF https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/utility/dependencies.ts
  * @license
  * Copyright Google Inc. All Rights Reserved.

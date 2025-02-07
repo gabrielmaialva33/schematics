@@ -20,7 +20,7 @@ function transform(options: ConfigurationOptions): ConfigurationOptions {
   target.language =
     target.language !== undefined ? target.language : DEFAULT_LANGUAGE;
   target.collection =
-    target.collection !== undefined ? target.collection : '@nestjs/schematics';
+    target.collection !== undefined ? target.collection : '@gabrielmaialva33/schematics';
   return target;
 }
 
