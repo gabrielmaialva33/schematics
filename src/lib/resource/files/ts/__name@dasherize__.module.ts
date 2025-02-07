@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { <%= classify(name) %>Repository } from '@src/modules/<%= dasherize(name) %>/repositories/<%= dasherize(name) %>.repository';
 import { <%= classify(name) %>Controller } from '@src/modules/<%= dasherize(name) %>/controllers/<%= dasherize(name) %>.controller';
 import { <%= classify(name) %>Service } from '@src/modules/<%= dasherize(name) %>/services/<%= dasherize(name) %>.service';
-import { <%= underscore(name).toUpperCase() %>_REPOSITORY } from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(name) %>.interface';
+import { <%= underscore(name).toUpperCase() %>_REPOSITORY } from '@src/modules/<%= dasherize(name) %>/interfaces/<%= singular(name) %>.interface';
 
 @Module({
   controllers: [<%= classify(name) %>Controller],
