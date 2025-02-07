@@ -4,7 +4,7 @@ import {
   <%= underscore(name).toUpperCase() %>_REPOSITORY,
   <%= classify(name) %>List,
   <%= classify(name) %>Paginate,
-} from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(name) %>.interface';
+} from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(singular(name))>.interface';
 import { <%= classify(singular(name)) %> } from '@src/modules/<%= dasherize(name) %>/entities/<%= dasherize(singular(name)) %>.entity';
 import { StringUtils } from '@src/common/helpers/string.utils';
 import { createPagination } from '@src/common/module/pagination/create-pagination';

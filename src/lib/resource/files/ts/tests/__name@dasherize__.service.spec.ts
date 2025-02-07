@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
+import { <%= classify(name) %>Service } from '@src/lib/resource/services/<%= singular(name) %>.service';
 
 describe('<%= classify(name) %>Service', () => {
   let service: <%= classify(name) %>Service;
