@@ -64,7 +64,7 @@ function transform(options: ResourceOptions): ResourceOptions {
     options.specFileSuffix || 'spec',
   );
 
-  target.path = join(normalize('src'), normalize('modules'));
+  target.path = join(normalize('modules'));
   if (!target.flat) {
     target.path = join(target.path as Path, target.name);
   }
