@@ -6,6 +6,10 @@ export interface ResourceOptions {
    */
   name: string;
   /**
+   * The name of the resource in singular form.
+   */
+  singularName?: string;
+  /**
    * The path to create the resource.
    */
   path?: string | Path;

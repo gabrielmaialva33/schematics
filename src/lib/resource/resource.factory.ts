@@ -53,6 +53,7 @@ function transform(options: ResourceOptions): ResourceOptions {
 
   const location: Location = new NameParser().parse(target);
   target.name = normalizeToKebabOrSnakeCase(location.name);
+  target.singularName = pluralize.singular(target.name);
   target.path = normalizeToKebabOrSnakeCase(location.path);
   target.language = target.language !== undefined ? target.language : 'ts';
   if (target.language === 'js') {
