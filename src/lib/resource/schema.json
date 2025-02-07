@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsNestResource",
+  "title": "Nest Resource Options Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the resource.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Qual o nome que deseja utilizar para este recurso (plural, por exemplo, \"organizations\")?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "O caminho onde o recurso será criado.",
+      "default": "src/modules"
+    },
+    "sourceRoot": {
+      "type": "string",
+      "description": "Nest resource source root directory."
+    },
+    "language": {
+      "type": "string",
+      "description": "Linguagem da aplicação (ts/js)."
+    },
+    "flat": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag para indicar se uma pasta deve ser criada."
+    },
+    "spec": {
+      "type": "boolean",
+      "default": true,
+      "description": "Indica se os arquivos de teste (spec) serão gerados."
+    },
+    "specFileSuffix": {
+      "type": "string",
+      "default": "spec",
+      "description": "Define o sufixo dos arquivos de teste."
+    },
+    "type": {
+      "type": "string",
+      "description": "O tipo de transporte (layer).",
+      "default": "rest",
+      "enum": [
+        "rest",
+        "graphql-code-first",
+        "graphql-schema-first",
+        "microservice",
+        "ws"
+      ],
+      "x-prompt": {
+        "message": "Qual camada de transporte você utiliza?",
+        "type": "list",
+        "items": [
+          {
+            "value": "rest",
+            "label": "REST API"
+          },
+          {
+            "value": "graphql-code-first",
+            "label": "GraphQL (code first)"
+          },
+          {
+            "value": "graphql-schema-first",
+            "label": "GraphQL (schema first)"
+          },
+          {
+            "value": "microservice",
+            "label": "Microservice (não HTTP)"
+          },
+          {
+            "value": "ws",
+            "label": "WebSockets"
+          }
+        ]
+      }
+    },
+    "skipImport": {
+      "type": "boolean",
+      "description": "Flag para pular a importação do módulo.",
+      "default": false
+    },
+    "crud": {
+      "type": "boolean",
+      "description": "Se true, os endpoints CRUD serão gerados.",
+      "default": true,
+      "x-prompt": {
+        "message": "Deseja gerar os endpoints CRUD?",
+        "type": "confirmation"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
