@@ -53,7 +53,7 @@ function transform(options: ResourceOptions): ResourceOptions {
 
   const location: Location = new NameParser().parse(target);
   target.name = normalizeToKebabOrSnakeCase(location.name);
-  target.singularName = pluralize.singular(target.name);
+  target.singularName = pluralize.singular(target.name).toLowerCase();
   target.path = normalizeToKebabOrSnakeCase(location.path);
   target.language = target.language !== undefined ? target.language : 'ts';
   if (target.language === 'js') {
@@ -131,18 +131,21 @@ function generate(options: ResourceOptions): Source {
       options.spec
         ? noop()
         : filter((path) => {
-            const suffix = `.__specFileSuffix__.ts`;
-            return !path.endsWith(suffix);
-          }),
+          const suffix = `.__specFileSuffix__.ts`;
+          return !path.endsWith(suffix);
+        }),
       template({
         ...strings,
         ...options,
+        singular: pluralize.singular,
+        singularName: options.singularName,
         lowercased: (name: string) => {
           const classifiedName = classify(name);
           return (
             classifiedName.charAt(0).toLowerCase() + classifiedName.slice(1)
           );
         },
+        s
         ent: (name: string) => name + '.entity',
       }),
       move(options.path),
