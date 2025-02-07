@@ -16,8 +16,7 @@
     "path": {
       "type": "string",
       "format": "path",
-      "description": "O caminho onde o recurso será criado.",
-      "default": "modules"
+      "description": "O caminho onde o recurso será criado."
     },
     "sourceRoot": {
       "type": "string",
