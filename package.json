@@ -1,6 +1,6 @@
 {
   "name": "@gabrielmaialva33/schematics",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Nest - modern, fast, powerful node.js web framework (@schematics)",
   "main": "dist/index.js",
   "files": [
