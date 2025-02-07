@@ -145,7 +145,6 @@ function generate(options: ResourceOptions): Source {
             classifiedName.charAt(0).toLowerCase() + classifiedName.slice(1)
           );
         },
-        s
         ent: (name: string) => name + '.entity',
       }),
       move(options.path),
