@@ -131,9 +131,9 @@ function generate(options: ResourceOptions): Source {
       options.spec
         ? noop()
         : filter((path) => {
-          const suffix = `.__specFileSuffix__.ts`;
-          return !path.endsWith(suffix);
-        }),
+            const suffix = `.__specFileSuffix__.ts`;
+            return !path.endsWith(suffix);
+          }),
       template({
         ...strings,
         ...options,
