@@ -13,3 +13,13 @@ export function normalizeToKebabOrSnakeCase(str: string) {
     ?.toLowerCase()
     ?.replace(STRING_DASHERIZE_REGEXP, '-');
 }
+
+export function constantCase(input: string): string {
+  if (!input) {
+    return '';
+  }
+  return input
+    .replace(/([a-z])([A-Z])/g, '$1_$2')
+    .replace(/[\s-]+/g, '_')
+    .toUpperCase();
+}

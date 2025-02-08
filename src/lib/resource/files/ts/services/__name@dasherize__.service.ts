@@ -1,15 +1,18 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import { DateTime } from 'luxon';
+
 import {
   I<%= classify(name) %>Repository,
   <%= underscore(name).toUpperCase() %>_REPOSITORY,
   <%= classify(name) %>List,
   <%= classify(name) %>Paginate,
-} from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(singular(name))>.interface';
+} from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(singular(name)) %>.interface';
 import { <%= classify(singular(name)) %> } from '@src/modules/<%= dasherize(name) %>/entities/<%= dasherize(singular(name)) %>.entity';
 import { StringUtils } from '@src/common/helpers/string.utils';
 import { createPagination } from '@src/common/module/pagination/create-pagination';
 import { Create<%= classify(singular(name)) %>Dto } from '@src/modules/<%= dasherize(name) %>/dto/create-<%= dasherize(singular(name)) %>.dto';
-import { DateTime } from 'luxon';
+import { Update<%= classify(singular(name)) %>Dto } from '@src/modules/<%= dasherize(name) %>/dto/update-<%= dasherize(singular(name)) %>.dto';
+
 
 @Injectable()
 export class <%= classify(name) %>Service {
@@ -66,7 +69,7 @@ export class <%= classify(name) %>Service {
     return this.<%= camelize(name) %>Repository.create(data);
   }
 
-  async update(id: number, data: Create<%= classify(singular(name)) %>Dto) {
+  async update(id: number, data: Update<%= classify(singular(name)) %>Dto) {
     const entity = await this.get(id);
     entity.$set(data);
     return this.<%= camelize(name) %>Repository.update(entity);

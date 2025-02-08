@@ -18,7 +18,7 @@ import {
 } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import * as pluralize from 'pluralize';
-import { DeclarationOptions, ModuleDeclarator, ModuleFinder } from '../..';
+import {constantCase, DeclarationOptions, ModuleDeclarator, ModuleFinder} from '../..';
 import {
   addPackageJsonDependency,
   getPackageJsonDependency,
@@ -137,6 +137,7 @@ function generate(options: ResourceOptions): Source {
       template({
         ...strings,
         ...options,
+        constantCase,
         singular: pluralize.singular,
         singularName: options.singularName,
         lowercased: (name: string) => {

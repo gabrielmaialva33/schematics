@@ -11,12 +11,12 @@
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "Qual o nome que deseja utilizar para este recurso (plural, por exemplo, \"organizations\")?"
+      "x-prompt": "\nWhat name do you want to use for this resource (plural, for example, \"organizations\")?"
     },
     "path": {
       "type": "string",
       "format": "path",
-      "description": "O caminho onde o recurso será criado."
+      "description": "The path to create the resource."
     },
     "sourceRoot": {
       "type": "string",
@@ -24,26 +24,26 @@
     },
     "language": {
       "type": "string",
-      "description": "Linguagem da aplicação (ts/js)."
+      "description": "Application language (ts/js)."
     },
     "flat": {
       "type": "boolean",
       "default": false,
-      "description": "Flag para indicar se uma pasta deve ser criada."
+      "description": "Flag to indicate if a directory is created."
     },
     "spec": {
       "type": "boolean",
       "default": true,
-      "description": "Indica se os arquivos de teste (spec) serão gerados."
+      "description": "Specifies if specs file are generated."
     },
     "specFileSuffix": {
       "type": "string",
       "default": "spec",
-      "description": "Define o sufixo dos arquivos de teste."
+      "description": "Specifies the file suffix of spec files."
     },
     "type": {
       "type": "string",
-      "description": "O tipo de transporte (layer).",
+      "description": "The transport layer.",
       "default": "rest",
       "enum": [
         "rest",
@@ -53,7 +53,7 @@
         "ws"
       ],
       "x-prompt": {
-        "message": "Qual camada de transporte você utiliza?",
+        "message": "What transport layer do you use?",
         "type": "list",
         "items": [
           {
@@ -70,7 +70,7 @@
           },
           {
             "value": "microservice",
-            "label": "Microservice (não HTTP)"
+            "label": "Microservice (non-HTTP)"
           },
           {
             "value": "ws",
@@ -81,15 +81,15 @@
     },
     "skipImport": {
       "type": "boolean",
-      "description": "Flag para pular a importação do módulo.",
+      "description": "Flag to skip the module import.",
       "default": false
     },
     "crud": {
       "type": "boolean",
-      "description": "Se true, os endpoints CRUD serão gerados.",
+      "description": "When true, CRUD entry points are generated.",
       "default": true,
       "x-prompt": {
-        "message": "Deseja gerar os endpoints CRUD?",
+        "message": "Would you like to generate CRUD entry points?",
         "type": "confirmation"
       }
     }

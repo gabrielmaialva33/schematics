@@ -15,6 +15,7 @@ export class <%= classify(singular(name)) %> extends BaseEntity {
    * Columns are used to define the fields of the model.
    */
   id: number;
+  name: string;
   deleted_at?: string;
   created_at: string;
   updated_at: string;
@@ -84,5 +85,5 @@ export class <%= classify(singular(name)) %> extends BaseEntity {
     return omit(json, ['deleted_at']);
   }
 
-  static searchBy = [];
+  static searchBy = ['name'];
 }
