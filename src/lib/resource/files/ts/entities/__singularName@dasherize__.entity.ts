@@ -87,4 +87,5 @@ export class <%= classify(singular(name)) %> extends BaseEntity {
   }
 
   static searchBy = ['name'];
+  static sortKeys = Object.keys(<%= classify(singular(name)) %>.jsonSchema.properties) as [string, ...string[]];
 }

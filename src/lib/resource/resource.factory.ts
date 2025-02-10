@@ -4,9 +4,10 @@ import {
   apply,
   branchAndMerge,
   chain,
+  FileEntry,
   filter,
+  forEach,
   mergeWith,
-  move,
   noop,
   Rule,
   SchematicContext,
@@ -18,7 +19,12 @@ import {
 } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import * as pluralize from 'pluralize';
-import {constantCase, DeclarationOptions, ModuleDeclarator, ModuleFinder} from '../..';
+import {
+  constantCase,
+  DeclarationOptions,
+  ModuleDeclarator,
+  ModuleFinder,
+} from '../..';
 import {
   addPackageJsonDependency,
   getPackageJsonDependency,
@@ -148,7 +154,7 @@ function generate(options: ResourceOptions): Source {
         },
         ent: (name: string) => name + '.entity',
       }),
-      move(options.path),
+      customMove(options.path),
     ])(context);
 }
 
@@ -208,5 +214,29 @@ function addMappedTypesDependencyIfApplies(options: ResourceOptions): Rule {
     } catch {
       // ignore if "package.json" not found
     }
+  };
+}
+
+function customMove(defaultPath: string): Rule {
+  return (tree: Tree, _context: SchematicContext) => {
+    const rules: Rule[] = [];
+
+    const moveFactories = forEach((entry: FileEntry) => {
+      if (entry.path.includes('/database/factories/')) {
+        const fileName = entry.path.split('/').pop();
+        return {
+          content: entry.content,
+          path: normalize(`src/database/factories/${fileName}`),
+        };
+      }
+      return {
+        content: entry.content,
+        path: normalize(`${defaultPath}/${entry.path}`),
+      };
+    });
+
+    rules.push(moveFactories);
+
+    return chain(rules)(tree, _context);
   };
 }

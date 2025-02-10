@@ -3,16 +3,15 @@ import { DateTime } from 'luxon';
 
 import {
   I<%= classify(name) %>Repository,
-  <%= underscore(name).toUpperCase() %>_REPOSITORY,
-  <%= classify(name) %>List,
-  <%= classify(name) %>Paginate,
+    <%= underscore(name).toUpperCase() %>_REPOSITORY,
+    <%= classify(name) %>List,
+    <%= classify(name) %>Paginate,
 } from '@src/modules/<%= dasherize(name) %>/interfaces/<%= dasherize(singular(name)) %>.interface';
 import { <%= classify(singular(name)) %> } from '@src/modules/<%= dasherize(name) %>/entities/<%= dasherize(singular(name)) %>.entity';
 import { StringUtils } from '@src/common/helpers/string.utils';
 import { createPagination } from '@src/common/module/pagination/create-pagination';
 import { Create<%= classify(singular(name)) %>Dto } from '@src/modules/<%= dasherize(name) %>/dto/create-<%= dasherize(singular(name)) %>.dto';
 import { Update<%= classify(singular(name)) %>Dto } from '@src/modules/<%= dasherize(name) %>/dto/update-<%= dasherize(singular(name)) %>.dto';
-
 
 @Injectable()
 export class <%= classify(name) %>Service {
@@ -77,8 +76,7 @@ export class <%= classify(name) %>Service {
 
   async remove(id: number) {
     const entity = await this.get(id);
-    return this.<%= camelize(name) %>Repository.update(
-      entity.$set({ deleted_at: DateTime.local().toSQL() }),
-    );
+    entity.$set({ deleted_at: DateTime.local().toSQL() });
+    return this.<%= camelize(name) %>Repository.update(entity);
   }
 }

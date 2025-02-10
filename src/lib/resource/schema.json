@@ -94,6 +94,12 @@
       }
     }
   },
+  "rules": [
+    {
+      "destination": "src/database/factories",
+      "files": "**/database/factories/*.factory.ts"
+    }
+  ],
   "required": [
     "name"
   ]
