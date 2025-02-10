@@ -25,6 +25,7 @@ export class <%= classify(singular(name)) %> extends BaseEntity {
    * Relations
    * ------------------------------------------------------
    */
+  static relationMappings = {};
 
   /**
    * ------------------------------------------------------
